@@ -67,25 +67,24 @@ export default async function IndexPage() {
           />
         </div>
       </section>
-      <section id="about" className="container py-8 md:py-12 lg:py-24">
-      </section>
-      <section id="open-source" className="container py-8 md:py-12 lg:py-24">
-        <div className="mx-auto flex max-w-[58rem] flex-col items-center justify-center gap-4 text-center">
-          <h2 className="font-heading text-3xl leading-[1.1] sm:text-3xl md:text-6xl">
-            Proudly Open Source
+      <section id="about" className="bg-primary_green container space-y-6 py-8 md:py-12 lg:py-24">
+        <div className="mx-auto flex max-w-[48rem] flex-col items-center justify-center gap-4 text-center">
+          <h2 className="font-heading text-4xl text-white">
+            About Us
           </h2>
-          <p className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
-            Taxonomy is open source and powered by open source software. <br />{" "}
-            The code is available on{" "}
-            <Link
-              href={siteConfig.links.github}
-              target="_blank"
-              rel="noreferrer"
-              className="underline underline-offset-4"
-            >
-              GitHub
-            </Link>
-            .{" "}
+          <h3 className="font-heading text-2xl text-white">Little Lemon, Chicago: A Mediterranean Delight</h3>
+          <img src="/images/mario-and-adrian-A.jpg" alt="Mario and Adrian A" className="rounded-3xl h-[300] w-auto"/>
+          <p className="max-w-[85%] leading-8 text-white">
+            Little Lemon, nestled in the heart of Chicago, is a charming family-owned Mediterranean restaurant renowned for its perfect blend of tradition and modernity.
+            The menu features classic Mediterranean dishes like hummus, baba ganoush, and lamb kebabs, each crafted from age-old recipes passed down through generations.
+            However, what truly sets Little Lemon apart is its innovative twist on these beloved classics, resulting in signature dishes such as lemon-infused chicken shawarma and grilled octopus with a pomegranate glaze.
+            The restaurant's commitment to using fresh, locally-sourced ingredients ensures every bite is bursting with authentic flavor.
+          </p>
+          <img src="/images/mario-and-adrian-B.jpg" alt="Mario and Abrian B" className="rounded-3xl h-[300] w-auto"/>
+          <p className="max-w-[85%] leading-8 text-white">
+            The warm, inviting atmosphere of Little Lemon makes it an ideal spot for any occasion, from casual family dinners to special celebrations.
+            The rustic yet elegant décor, combined with the attentive and knowledgeable staff, creates a dining experience that feels both cozy and refined.
+            Whether you’re indulging in a mezze platter or savoring a hearty moussaka, Little Lemon offers a culinary journey that delights the senses and celebrates the rich heritage of Mediterranean cuisine.
           </p>
         </div>
       </section>
