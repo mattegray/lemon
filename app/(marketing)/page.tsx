@@ -11,7 +11,7 @@ import { MenuCard } from "@/components/menu-card"
 export default async function IndexPage() {
   return (
     <>
-      <section className="bg-primary_green space-y-6 pb-32 pt-32">
+      <section id="home" className="bg-primary_green space-y-6 pb-32 pt-32">
         <div className="container grid grid-cols-2 gap-4  max-w-[64rem]">
           <div className="container flex flex-col gap-8 text-left">
             <h1 className="font-heading text-6xl text-primary_yellow">
@@ -35,15 +35,15 @@ export default async function IndexPage() {
         </div>
       </section>
       <section
-        id="specials"
+        id="menu"
         className="container space-y-6 py-8 md:py-12 lg:py-24"
       >
         <div className="mx-auto flex max-w-[58rem] flex-row justify-between py-6">
           <h2 className="font-heading text-4xl">
-            This weeks specials!
+            Our Menu
           </h2>
-          <Link href="/menu" className={cn(buttonVariants({ size: "lg" }))}>
-            Online Menu
+          <Link href="/reservation" className={cn(buttonVariants({ size: "lg" }))}>
+            Reserve a table
           </Link>
         </div>
         <div className="mx-auto grid justify-center gap-4 sm:grid-cols-2 md:max-w-[58rem] md:grid-cols-3">
@@ -56,13 +56,13 @@ export default async function IndexPage() {
           <MenuCard
             title="Bruchetta"
             description="Toasted bread topped with a mixture of fresh tomatoes, basil, garlic, and olive oil."
-            price="$12.99"
+            price="$14.99"
             image="/images/bruchetta.jpg"
           />
           <MenuCard
             title="Lemon Dessert"
             description="A light and refreshing lemon dessert that is perfect for summer."
-            price="$12.99"
+            price="$7.99"
             image="/images/lemon-dessert.jpg"
           />
         </div>
