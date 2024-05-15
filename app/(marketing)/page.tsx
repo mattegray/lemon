@@ -24,7 +24,7 @@ export default async function IndexPage() {
               We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.
             </p>
             <div className="space-x-4">
-              <Link href="/reservation" className={cn(buttonVariants({ size: "lg" }))}>
+              <Link href="/reservations" className={cn(buttonVariants({ size: "lg" }))}>
                 Reserve a table
               </Link>
             </div>
@@ -42,7 +42,7 @@ export default async function IndexPage() {
           <h2 className="font-heading text-4xl">
             Our Menu
           </h2>
-          <Link href="/reservation" className={cn(buttonVariants({ size: "lg" }))}>
+          <Link href="/reservations" className={cn(buttonVariants({ size: "lg" }))}>
             Reserve a table
           </Link>
         </div>

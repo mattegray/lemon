@@ -16,7 +16,7 @@ export const marketingConfig: MarketingConfig = {
     },
     {
       title: "Reservations",
-      href: "/reservation",
+      href: "/reservations",
     }
   ],
 }

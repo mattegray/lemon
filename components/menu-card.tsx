@@ -17,7 +17,7 @@ export function MenuCard({ title, description, price, image }) {
               {description}
             </p>
           </div>
-          <Link href="/reservation" className={cn(buttonVariants({ variant: "default", size: "sm" }))}> Add to Reservation </Link>
+          <Link href="/reservations" className={cn(buttonVariants({ variant: "default", size: "sm" }))}> Add to Reservation </Link>
         </div>
       </div>
     </div>
