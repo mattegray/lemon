@@ -7,24 +7,16 @@ export const marketingConfig: MarketingConfig = {
       href: "/",
     },
     {
+      title: "Menu",
+      href: "/#menu",
+    },
+    {
       title: "About",
       href: "/#about",
     },
     {
-      title: "Menu",
-      href: "/menu",
-    },
-    {
       title: "Reservations",
       href: "/reservation",
-    },
-    {
-      title: "Order Online",
-      href: "/pricing",
-    },
-    {
-      title: "Login",
-      href: "/login",
-    },
+    }
   ],
 }
