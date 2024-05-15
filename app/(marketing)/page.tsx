@@ -7,32 +7,7 @@ import { cn } from "@/lib/utils"
 import { buttonVariants } from "@/components/ui/button"
 import { MenuCard } from "@/components/menu-card"
 
-// async function getGitHubStars(): Promise<string | null> {
-//   try {
-//     const response = await fetch(
-//       "https://api.github.com/repos/shadcn/taxonomy",
-//       {
-//         headers: {
-//           Accept: "application/vnd.github+json",
-//           Authorization: `Bearer ${env.GITHUB_ACCESS_TOKEN}`,
-//         },
-//         next: {
-//           revalidate: 60,
-//         },
-//       }
-//     )
 
-//     if (!response?.ok) {
-//       return null
-//     }
-
-//     const json = await response.json()
-
-//     return parseInt(json["stargazers_count"]).toLocaleString()
-//   } catch (error) {
-//     return null
-//   }
-// }
 export default async function IndexPage() {
   return (
     <>
@@ -91,12 +66,8 @@ export default async function IndexPage() {
             image="/images/lemon-dessert.jpg"
           />
         </div>
-        <div className="mx-auto text-center md:max-w-[58rem]">
-          <p className="leading-normal text-muted-foreground sm:text-lg sm:leading-7">
-            Taxonomy also includes a blog and a full-featured documentation site
-            built using Contentlayer and MDX.
-          </p>
-        </div>
+      </section>
+      <section id="about" className="container py-8 md:py-12 lg:py-24">
       </section>
       <section id="open-source" className="container py-8 md:py-12 lg:py-24">
         <div className="mx-auto flex max-w-[58rem] flex-col items-center justify-center gap-4 text-center">
