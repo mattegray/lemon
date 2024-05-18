@@ -31,7 +31,7 @@ const FormSchema = z.object({
   }),
 })
 
-export function DatePickerForm() {
+export function ReservationForm() {
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
   })
