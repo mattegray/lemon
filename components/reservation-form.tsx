@@ -40,11 +40,23 @@ const FormSchema = z.object({
   guests: z.string({
     required_error: "The number of guests is required.",
   }),
+  firstname: z.string().min(2, {
+    message: "First name must be at least 2 characters.",
+  }),
+  lastname: z.string().min(2, {
+    message: "Last name must be at least 2 characters.",
+  }),
 })
 
 export function ReservationForm() {
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
+    defaultValues: {
+      dor: new Date(),
+      guests: "1",
+      firstname: "",
+      lastname: "",
+    },
   })
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
@@ -60,7 +72,7 @@ export function ReservationForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+      <form onSubmit={form.handleSubmit(onSubmit)} className={"space-y-4"}>
         <FormField
           control={form.control}
           name="dor"
@@ -111,7 +123,7 @@ export function ReservationForm() {
           render={({ field }) => (
             <FormItem className="flex flex-col">
               <FormLabel>Number of Guests</FormLabel>
-              <Select onValueChange={field.onChange} defaultValue="1">
+              <Select onValueChange={field.onChange} defaultValue={field.value}>
                 <FormControl>
                   <SelectTrigger>
                     <SelectValue placeholder="Select the number of guests" />
@@ -127,6 +139,38 @@ export function ReservationForm() {
               </Select>
               <FormDescription>
                 Please select the number of guests..
+              </FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="firstname"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>First Name</FormLabel>
+              <FormControl>
+                <Input placeholder="John" {...field} />
+              </FormControl>
+              <FormDescription>
+                Please enter your first name.
+              </FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="lastname"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Last Name</FormLabel>
+              <FormControl>
+                <Input placeholder="Doe" {...field} />
+              </FormControl>
+              <FormDescription>
+                Please enter your last name.
               </FormDescription>
               <FormMessage />
             </FormItem>
