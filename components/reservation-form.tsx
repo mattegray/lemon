@@ -23,11 +23,22 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
+import { Input } from "@/components/ui/input"
 import { toast } from "@/components/ui/use-toast"
 
 const FormSchema = z.object({
-  dob: z.date({
-    required_error: "A date of birth is required.",
+  dor: z.date({
+    required_error: "A date of reservation is required.",
+  }),
+  guests: z.string({
+    required_error: "The number of guests is required.",
   }),
 })
 
@@ -52,17 +63,17 @@ export function ReservationForm() {
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
         <FormField
           control={form.control}
-          name="dob"
+          name="dor"
           render={({ field }) => (
             <FormItem className="flex flex-col">
-              <FormLabel>Date of birth</FormLabel>
+              <FormLabel>Date of Reservation</FormLabel>
               <Popover>
                 <PopoverTrigger asChild>
                   <FormControl>
                     <Button
                       variant={"outline"}
                       className={cn(
-                        "w-[240px] pl-3 text-left font-normal",
+                        "pl-3 text-left font-normal",
                         !field.value && "text-muted-foreground"
                       )}
                     >
@@ -88,7 +99,34 @@ export function ReservationForm() {
                 </PopoverContent>
               </Popover>
               <FormDescription>
-                Your date of birth is used to calculate your age.
+                Please enter the date you would like to visit.
+              </FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="guests"
+          render={({ field }) => (
+            <FormItem className="flex flex-col">
+              <FormLabel>Number of Guests</FormLabel>
+              <Select onValueChange={field.onChange} defaultValue="1">
+                <FormControl>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select the number of guests" />
+                  </SelectTrigger>
+                </FormControl>
+                <SelectContent>
+                  {[1, 2, 3, 4, 5, 6, 7, 8].map((value) => (
+                    <SelectItem key={value} value={value.toString()}>
+                      {value}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+              <FormDescription>
+                Please select the number of guests..
               </FormDescription>
               <FormMessage />
             </FormItem>
