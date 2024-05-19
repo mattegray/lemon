@@ -31,6 +31,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { Input } from "@/components/ui/input"
+import { Separator } from "@/components/ui/separator"
 import { toast } from "@/components/ui/use-toast"
 
 const FormSchema = z.object({
@@ -46,6 +47,9 @@ const FormSchema = z.object({
   lastname: z.string().min(2, {
     message: "Last name must be at least 2 characters.",
   }),
+  phone: z.string().regex(/^\d{2,3}-\d{3,4}-\d{3,4}$/, {
+    message: "Please enter a valid phone number.",
+  }),
 })
 
 export function ReservationForm() {
@@ -56,6 +60,7 @@ export function ReservationForm() {
       guests: "1",
       firstname: "",
       lastname: "",
+      phone: "",
     },
   })
 
@@ -144,6 +149,7 @@ export function ReservationForm() {
             </FormItem>
           )}
         />
+        <Separator />
         <FormField
           control={form.control}
           name="firstname"
@@ -171,6 +177,22 @@ export function ReservationForm() {
               </FormControl>
               <FormDescription>
                 Please enter your last name.
+              </FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="phone"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Phone Number</FormLabel>
+              <FormControl>
+                <Input placeholder="10-1234-5678" {...field} />
+              </FormControl>
+              <FormDescription>
+                Please enter your phone number.
               </FormDescription>
               <FormMessage />
             </FormItem>
