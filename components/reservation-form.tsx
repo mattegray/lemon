@@ -38,6 +38,9 @@ const FormSchema = z.object({
   dor: z.date({
     required_error: "A date of reservation is required.",
   }),
+  time: z.string({
+    required_error: "The time of reservation is required.",
+  }),
   guests: z.string({
     required_error: "The number of guests is required.",
   }),
@@ -56,8 +59,6 @@ export function ReservationForm() {
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
-      dor: new Date(),
-      guests: "1",
       firstname: "",
       lastname: "",
       phone: "",
@@ -124,6 +125,33 @@ export function ReservationForm() {
         />
         <FormField
           control={form.control}
+          name="time"
+          render={({ field }) => (
+            <FormItem className="flex flex-col">
+              <FormLabel>Time</FormLabel>
+              <Select onValueChange={field.onChange} defaultValue={field.value}>
+                <FormControl>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select the time" />
+                  </SelectTrigger>
+                </FormControl>
+                <SelectContent>
+                  {["12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00"].map((value) => (
+                    <SelectItem key={value} value={value}>
+                      {value}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+              <FormDescription>
+                Please select the number of guests.
+              </FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
           name="guests"
           render={({ field }) => (
             <FormItem className="flex flex-col">
@@ -143,7 +171,7 @@ export function ReservationForm() {
                 </SelectContent>
               </Select>
               <FormDescription>
-                Please select the number of guests..
+                Please select the number of guests.
               </FormDescription>
               <FormMessage />
             </FormItem>
