@@ -18,6 +18,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form"
+import { Input } from "@/components/ui/input"
 import {
   Popover,
   PopoverContent,
@@ -30,7 +31,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-import { Input } from "@/components/ui/input"
 import { Separator } from "@/components/ui/separator"
 import { toast } from "@/components/ui/use-toast"
 
@@ -136,7 +136,19 @@ export function ReservationForm() {
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
-                  {["12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00"].map((value) => (
+                  {[
+                    "12:00",
+                    "13:00",
+                    "14:00",
+                    "15:00",
+                    "16:00",
+                    "17:00",
+                    "18:00",
+                    "19:00",
+                    "20:00",
+                    "21:00",
+                    "22:00",
+                  ].map((value) => (
                     <SelectItem key={value} value={value}>
                       {value}
                     </SelectItem>
@@ -187,9 +199,7 @@ export function ReservationForm() {
               <FormControl>
                 <Input placeholder="John" {...field} />
               </FormControl>
-              <FormDescription>
-                Please enter your first name.
-              </FormDescription>
+              <FormDescription>Please enter your first name.</FormDescription>
               <FormMessage />
             </FormItem>
           )}
@@ -203,9 +213,7 @@ export function ReservationForm() {
               <FormControl>
                 <Input placeholder="Doe" {...field} />
               </FormControl>
-              <FormDescription>
-                Please enter your last name.
-              </FormDescription>
+              <FormDescription>Please enter your last name.</FormDescription>
               <FormMessage />
             </FormItem>
           )}
@@ -219,9 +227,7 @@ export function ReservationForm() {
               <FormControl>
                 <Input placeholder="10-1234-5678" {...field} />
               </FormControl>
-              <FormDescription>
-                Please enter your phone number.
-              </FormDescription>
+              <FormDescription>Please enter your phone number.</FormDescription>
               <FormMessage />
             </FormItem>
           )}
