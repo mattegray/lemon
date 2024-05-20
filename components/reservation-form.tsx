@@ -24,6 +24,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover"
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import {
   Select,
   SelectContent,
@@ -43,6 +44,9 @@ const FormSchema = z.object({
   }),
   guests: z.string({
     required_error: "The number of guests is required.",
+  }),
+  menu: z.enum(["greek-salad", "bruchetta", "lemon-dessert"], {
+    required_error: "You need to select a menu.",
   }),
   firstname: z.string().min(2, {
     message: "First name must be at least 2 characters.",
@@ -185,6 +189,42 @@ export function ReservationForm() {
               <FormDescription>
                 Please select the number of guests.
               </FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="menu"
+          render={({ field }) => (
+            <FormItem className="space-y-3">
+              <FormLabel>Menu</FormLabel>
+              <FormControl>
+                <RadioGroup
+                  onValueChange={field.onChange}
+                  defaultValue={field.value}
+                  className="flex flex-col space-y-1"
+                >
+                  <FormItem className="flex items-center space-x-3 space-y-0">
+                    <FormControl>
+                      <RadioGroupItem value="greek-salad" />
+                    </FormControl>
+                    <FormLabel className="font-normal">Greek Salad</FormLabel>
+                  </FormItem>
+                  <FormItem className="flex items-center space-x-3 space-y-0">
+                    <FormControl>
+                      <RadioGroupItem value="bruchetta" />
+                    </FormControl>
+                    <FormLabel className="font-normal">Bruchetta</FormLabel>
+                  </FormItem>
+                  <FormItem className="flex items-center space-x-3 space-y-0">
+                    <FormControl>
+                      <RadioGroupItem value="lemon-dessert" />
+                    </FormControl>
+                    <FormLabel className="font-normal">Lemon Dessert</FormLabel>
+                  </FormItem>
+                </RadioGroup>
+              </FormControl>
               <FormMessage />
             </FormItem>
           )}
